@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TodoList from "./components/TodoList/TodoList";
 import "./App.css";
 import Form from "./components/Form/Form";
+import TodoHeader from "./components/TodoHeader/TodoHeader";
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class App extends Component {
       userInput: "",
       todos: [],
     };
+    
   }
 
   // Eğer input alanı boş değilse todos'a ekleye
@@ -47,9 +49,16 @@ class App extends Component {
     });
   };
 
+  handleDelete = (id, e) => {
+    const remainder = this.state.todos.filter(todo => todo.id !== e.target.todos.id);
+    this.setState({todos: remainder}, console.log(this.state.todo.id));
+    //console.log(this.state.todos);
+  } 
+
   render() {
     return (
       <div className="App">
+        <TodoHeader />
         <Form
           userInput={this.state.userInput}
           onInputChange={this.onInputChange}
@@ -57,7 +66,7 @@ class App extends Component {
         />
         {this.state.todos.length > 0 && (
           <div className="list">
-            <TodoList todos={this.state.todos} />
+            <TodoList todos={this.state.todos} handleDelete = {this.handleDelete} />
           </div>
         )}
       </div>

@@ -1,0 +1,14 @@
+div {
+    padding: 10px;
+}
+
+.btn {
+    background-color: #afd275;
+    color: #fff;
+    margin-top: -6px;
+    margin-right: -10px;
+}
+
+.done {
+    text-decoration: line-through;
+}

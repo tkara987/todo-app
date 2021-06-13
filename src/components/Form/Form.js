@@ -13,7 +13,7 @@ const Form = ({ userInput, onInputChange, addItem }) => {
         onChange={onInputChange}
         className="form-control"
       />
-      <button onClick={addItem} className="btn btn-primary">
+      <button onClick={addItem} className="btn">
         Ekle
       </button>
     </form>
