@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./TodoItem.css";
 
 function Todo(props) {
-  const { content } = props;
+  const { content, id, handleDeleteButton } = props;
   const [isDone, setDone] = useState("false");
-  const handleDelete = props.handleDelete;
 
   const handletoggle = () => {
     setDone(!isDone);
@@ -12,7 +11,7 @@ function Todo(props) {
 
   return <div className={isDone ? "": "done"} onClick={handletoggle}>
     {content}
-    <button className="btn float-right" onClick={handleDelete}>Sil</button>
+    <button className="btn float-right" onClick={() => handleDeleteButton(id)}>Sil</button>
     </div>;
 }
 

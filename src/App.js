@@ -49,11 +49,9 @@ class App extends Component {
     });
   };
 
-  handleDelete = (id, e) => {
-    const remainder = this.state.todos.filter(todo => todo.id !== e.target.todos.id);
-    this.setState({todos: remainder}, console.log(this.state.todo.id));
-    //console.log(this.state.todos);
-  } 
+  deleteTodoItem = (id) => {
+    this.setState({ todos : this.state.todos.filter(todo => todo.id !== id)})
+  };
 
   render() {
     return (
@@ -66,7 +64,7 @@ class App extends Component {
         />
         {this.state.todos.length > 0 && (
           <div className="list">
-            <TodoList todos={this.state.todos} handleDelete = {this.handleDelete} />
+            <TodoList todos={this.state.todos} deleteItem={(id) => this.deleteTodoItem(id)} />
           </div>
         )}
       </div>
